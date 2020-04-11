@@ -7,6 +7,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 import Vista.paneladministrarclientes;
+import Vista.paneladministrarempleados;
+import Vista.paneladministrarproductos;
+import Vista.paneladministrarproductosproveedor;
+import Vista.paneladministrarproveedores;
 import Vista.ventanaadministrador;
 import Vista.ventanainicio;
 
@@ -42,14 +46,46 @@ public class controlador_ventanaadministrador implements ActionListener {
 			controlador.iniciarventana();
 			this.ventana.dispose();
 		}else if(e.getSource() == ventana.boton_administrarempleados) {
+			paneladministrarempleados panel = new paneladministrarempleados();
+			controlador_paneladministrarempleados controlador = new controlador_paneladministrarempleados(panel);
+			
+			ventana.panelcambio.removeAll();
+			ventana.panelcambio.add(panel,BorderLayout.CENTER);
+			ventana.panelcambio.revalidate();
+			ventana.panelcambio.repaint();
+			
 			
 		}else if(e.getSource() == ventana.boton_administrarordenes) {
-			
+		
 		}else if(e.getSource() == ventana.boton_administrarproductos) {
+			paneladministrarproductos panel = new paneladministrarproductos();
+			controlador_paneladministrarproductos controlador = new controlador_paneladministrarproductos(panel);
+			
+			ventana.panelcambio.removeAll();
+			ventana.panelcambio.add(panel,BorderLayout.CENTER);
+			ventana.panelcambio.revalidate();
+			ventana.panelcambio.repaint();
+			
 			
 		}else if(e.getSource() == ventana.boton_administrarproductosproveedor) {
+			paneladministrarproductosproveedor panel = new paneladministrarproductosproveedor();
+			controlador_paneladministrarproductosproveedor controlador = new controlador_paneladministrarproductosproveedor(panel);
+			
+			ventana.panelcambio.removeAll();
+			ventana.panelcambio.add(panel,BorderLayout.CENTER);
+			ventana.panelcambio.revalidate();
+			ventana.panelcambio.repaint();
 			
 		}else if(e.getSource() == ventana.boton_administrarproveedores) {
+			
+			paneladministrarproveedores panel = new paneladministrarproveedores();
+			controlador_paneladministrarproveedores controlador = new controlador_paneladministrarproveedores(panel);
+			
+			ventana.panelcambio.removeAll();
+			ventana.panelcambio.add(panel,BorderLayout.CENTER);
+			ventana.panelcambio.revalidate();
+			ventana.panelcambio.repaint();
+			
 			
 		}else if(e.getSource() == ventana.boton_administrarclientes) {
 			paneladministrarclientes panel = new paneladministrarclientes();

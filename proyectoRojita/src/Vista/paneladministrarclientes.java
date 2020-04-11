@@ -16,13 +16,20 @@ import javax.swing.table.DefaultTableModel;
 public class paneladministrarclientes extends JPanel {
 	
 	public JButton boton_buscar;
+	public JButton boton_modificar;
+	public JButton boton_eliminar;
+	public JButton boton_agregar;
+	
+	
 	public JTextField camporut;
 	public JTextField camponombre;
 	public JTextField campoapellido;
 	public JTextField campotelefono;
+	
+	
 	public JPanel panellista;
 	public JTable table;
-	public JButton btnModificar;
+	
 
 	
 	public paneladministrarclientes() {
@@ -49,66 +56,76 @@ public class paneladministrarclientes extends JPanel {
 		
 		JPanel panel_5 = new JPanel();
 		panel_5.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_5.setBounds(10, 11, 775, 71);
+		panel_5.setBounds(10, 11, 775, 101);
 		panel_4.add(panel_5);
 		panel_5.setLayout(null);
 		
 		JLabel lblrut = new JLabel("Rut:");
 		lblrut.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		lblrut.setBounds(30, 11, 66, 19);
+		lblrut.setBounds(63, 11, 66, 19);
 		panel_5.add(lblrut);
 		
 		camporut = new JTextField();
 		camporut.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		camporut.setBounds(96, 10, 214, 20);
+		camporut.setBounds(129, 10, 214, 20);
 		panel_5.add(camporut);
 		camporut.setColumns(10);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
 		lblNombre.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		lblNombre.setBounds(320, 11, 66, 19);
+		lblNombre.setBounds(420, 10, 66, 19);
 		panel_5.add(lblNombre);
 		
 		camponombre = new JTextField();
 		camponombre.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		camponombre.setColumns(10);
-		camponombre.setBounds(396, 10, 214, 20);
+		camponombre.setBounds(496, 9, 214, 20);
 		panel_5.add(camponombre);
 		
 		JLabel lblapellido = new JLabel("Apellido");
 		lblapellido.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		lblapellido.setBounds(30, 41, 56, 19);
+		lblapellido.setBounds(63, 41, 56, 19);
 		panel_5.add(lblapellido);
 		
 		campoapellido = new JTextField();
 		campoapellido.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		campoapellido.setColumns(10);
-		campoapellido.setBounds(96, 40, 214, 20);
+		campoapellido.setBounds(129, 40, 214, 20);
 		panel_5.add(campoapellido);
 		
 		campotelefono = new JTextField();
 		campotelefono.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		campotelefono.setColumns(10);
-		campotelefono.setBounds(396, 41, 214, 20);
+		campotelefono.setBounds(496, 40, 214, 20);
 		panel_5.add(campotelefono);
 		
 		JLabel lbltelefono = new JLabel("Telefono:");
 		lbltelefono.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		lbltelefono.setBounds(320, 41, 66, 19);
+		lbltelefono.setBounds(420, 40, 66, 19);
 		panel_5.add(lbltelefono);
 		
-		boton_buscar = new JButton("Buscar");
-		boton_buscar.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		boton_buscar.setBounds(647, 39, 102, 23);
-		panel_5.add(boton_buscar);
+		boton_agregar = new JButton("Agregar");
+		boton_agregar.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		boton_agregar.setBounds(169, 71, 102, 23);
+		panel_5.add(boton_agregar);
 		
-		btnModificar = new JButton("Modificar");
-		btnModificar.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		btnModificar.setBounds(647, 9, 102, 23);
-		panel_5.add(btnModificar);
+		boton_buscar = new JButton("Buscar");
+		boton_buscar.setBounds(281, 71, 102, 23);
+		panel_5.add(boton_buscar);
+		boton_buscar.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		
+		boton_modificar = new JButton("Modificar");
+		boton_modificar.setBounds(393, 71, 102, 23);
+		panel_5.add(boton_modificar);
+		boton_modificar.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		
+		boton_eliminar = new JButton("Eliminar");
+		boton_eliminar.setBounds(505, 71, 102, 23);
+		panel_5.add(boton_eliminar);
+		boton_eliminar.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		
 		panellista = new JPanel();
-		panellista.setBounds(10, 93, 775, 315);
+		panellista.setBounds(10, 117, 775, 291);
 		panel_4.add(panellista);
 		panellista.setLayout(new BorderLayout(0, 0));
 		

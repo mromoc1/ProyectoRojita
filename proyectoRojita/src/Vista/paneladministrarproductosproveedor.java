@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
-public class paneladministrarempleados extends JPanel {
+public class paneladministrarproductosproveedor extends JPanel {
 
 	public JButton boton_buscar;
 	public JButton boton_modificar;
@@ -21,20 +21,17 @@ public class paneladministrarempleados extends JPanel {
 	public JButton boton_agregar;
 	
 	
-	public JTextField camporut;
-	public JTextField campocargo;
-	public JTextField camponombre;
-	public JTextField campotelefono;
-	public JTextField campoapellido;
+	public JTextField campocodigo;
+	public JTextField campoidproveedor;
+	public JTextField campopreciocompra;
 	
 	
 	public JPanel panellista;
 	public JTable table;
 	
 	
-	public paneladministrarempleados() {
-
-		setLayout(new BorderLayout(0, 0));
+	public paneladministrarproductosproveedor() {
+setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
 		add(panel, BorderLayout.CENTER);
@@ -42,10 +39,10 @@ public class paneladministrarempleados extends JPanel {
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_3.setBounds(286, 11, 236, 48);
+		panel_3.setBounds(245, 11, 321, 48);
 		panel.add(panel_3);
 		
-		JLabel lblInventario = new JLabel("Empleados");
+		JLabel lblInventario = new JLabel("Productos Proveedor");
 		panel_3.add(lblInventario);
 		lblInventario.setFont(new Font("Century Gothic", Font.PLAIN, 30));
 		
@@ -57,87 +54,65 @@ public class paneladministrarempleados extends JPanel {
 		
 		JPanel panel_5 = new JPanel();
 		panel_5.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_5.setBounds(10, 11, 775, 136);
+		panel_5.setBounds(10, 11, 775, 105);
 		panel_4.add(panel_5);
 		panel_5.setLayout(null);
 		
-		JLabel lblrut = new JLabel("Rut:");
+		JLabel lblrut = new JLabel("Codigo:");
 		lblrut.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		lblrut.setBounds(63, 11, 33, 19);
+		lblrut.setBounds(53, 11, 66, 19);
 		panel_5.add(lblrut);
 		
-		camporut = new JTextField();
-		camporut.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		camporut.setBounds(129, 10, 214, 20);
-		panel_5.add(camporut);
-		camporut.setColumns(10);
+		campocodigo = new JTextField();
+		campocodigo.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		campocodigo.setBounds(129, 10, 214, 20);
+		panel_5.add(campocodigo);
+		campocodigo.setColumns(10);
 		
-		JLabel lblNombre = new JLabel("Cargo:");
+		JLabel lblNombre = new JLabel("ID proveedor:");
 		lblNombre.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		lblNombre.setBounds(420, 10, 66, 19);
+		lblNombre.setBounds(393, 11, 93, 19);
 		panel_5.add(lblNombre);
 		
-		campocargo = new JTextField();
-		campocargo.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		campocargo.setColumns(10);
-		campocargo.setBounds(496, 9, 214, 20);
-		panel_5.add(campocargo);
+		campoidproveedor = new JTextField();
+		campoidproveedor.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		campoidproveedor.setColumns(10);
+		campoidproveedor.setBounds(496, 9, 214, 20);
+		panel_5.add(campoidproveedor);
 		
-		JLabel lblapellido = new JLabel("Nombre:");
-		lblapellido.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		lblapellido.setBounds(53, 41, 66, 19);
-		panel_5.add(lblapellido);
+		campopreciocompra = new JTextField();
+		campopreciocompra.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		campopreciocompra.setColumns(10);
+		campopreciocompra.setBounds(496, 40, 214, 20);
+		panel_5.add(campopreciocompra);
 		
-		camponombre = new JTextField();
-		camponombre.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		camponombre.setColumns(10);
-		camponombre.setBounds(129, 40, 214, 20);
-		panel_5.add(camponombre);
-		
-		campotelefono = new JTextField();
-		campotelefono.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		campotelefono.setColumns(10);
-		campotelefono.setBounds(496, 40, 214, 20);
-		panel_5.add(campotelefono);
-		
-		JLabel lbltelefono = new JLabel("Telefono:");
+		JLabel lbltelefono = new JLabel("Precio Compra:");
 		lbltelefono.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		lbltelefono.setBounds(420, 40, 66, 19);
+		lbltelefono.setBounds(379, 41, 107, 19);
 		panel_5.add(lbltelefono);
 		
 		boton_agregar = new JButton("Agregar");
 		boton_agregar.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		boton_agregar.setBounds(168, 102, 102, 23);
+		boton_agregar.setBounds(167, 71, 102, 23);
 		panel_5.add(boton_agregar);
 		
 		boton_buscar = new JButton("Buscar");
-		boton_buscar.setBounds(280, 102, 102, 23);
+		boton_buscar.setBounds(279, 71, 102, 23);
 		panel_5.add(boton_buscar);
 		boton_buscar.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		
 		boton_modificar = new JButton("Modificar");
-		boton_modificar.setBounds(392, 102, 102, 23);
+		boton_modificar.setBounds(391, 71, 102, 23);
 		panel_5.add(boton_modificar);
 		boton_modificar.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		
 		boton_eliminar = new JButton("Eliminar");
-		boton_eliminar.setBounds(504, 102, 102, 23);
+		boton_eliminar.setBounds(503, 71, 102, 23);
 		panel_5.add(boton_eliminar);
 		boton_eliminar.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		
-		campoapellido = new JTextField();
-		campoapellido.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		campoapellido.setColumns(10);
-		campoapellido.setBounds(129, 71, 214, 20);
-		panel_5.add(campoapellido);
-		
-		JLabel lblCargo = new JLabel("Apellido:");
-		lblCargo.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		lblCargo.setBounds(53, 72, 66, 19);
-		panel_5.add(lblCargo);
-		
 		panellista = new JPanel();
-		panellista.setBounds(10, 152, 775, 273);
+		panellista.setBounds(10, 127, 775, 298);
 		panel_4.add(panellista);
 		panellista.setLayout(new BorderLayout(0, 0));
 		
@@ -149,7 +124,7 @@ public class paneladministrarempleados extends JPanel {
 			new Object[][] {
 			},
 			new String[] {
-				"Rut", "Nombre", "Apellido", "Cargo", "Telefono"
+				"Codigo", "Nombre", "Categoria"
 			}
 		));
 		scrollPane.setViewportView(table);
@@ -158,5 +133,7 @@ public class paneladministrarempleados extends JPanel {
 		add(panel_1, BorderLayout.NORTH);
 		panel_1.setLayout(new BorderLayout(0, 0));
 
+
 	}
+
 }

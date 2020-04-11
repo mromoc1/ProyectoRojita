@@ -41,17 +41,17 @@ public class ventanaadministrador extends JFrame {
 		boton_administrarclientes.setBackground(Color.LIGHT_GRAY);
 		panel.add(boton_administrarclientes);
 		
-		boton_administrarproductos = new JButton("Administrar Productos");
-		boton_administrarproductos.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		boton_administrarproductos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		boton_administrarproductos.setBackground(Color.LIGHT_GRAY);
-		panel.add(boton_administrarproductos);
-		
 		boton_administrarproveedores = new JButton("Administrar Proveedores");
 		boton_administrarproveedores.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		boton_administrarproveedores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		boton_administrarproveedores.setBackground(Color.LIGHT_GRAY);
 		panel.add(boton_administrarproveedores);
+		
+		boton_administrarproductos = new JButton("Administrar Productos");
+		boton_administrarproductos.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		boton_administrarproductos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		boton_administrarproductos.setBackground(Color.LIGHT_GRAY);
+		panel.add(boton_administrarproductos);
 		
 		boton_administrarproductosproveedor = new JButton("Administrar Productos Proveedor");
 		boton_administrarproductosproveedor.setFont(new Font("Century Gothic", Font.PLAIN, 14));

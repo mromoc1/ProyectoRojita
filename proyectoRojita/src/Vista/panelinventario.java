@@ -58,11 +58,6 @@ public class panelinventario extends JPanel {
 		panel_4.add(panel_5);
 		panel_5.setLayout(null);
 		
-		JLabel lblBuscarProducto = new JLabel("Buscar Producto");
-		lblBuscarProducto.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		lblBuscarProducto.setBounds(10, 11, 120, 19);
-		panel_5.add(lblBuscarProducto);
-		
 		JLabel lblCodigoProducto = new JLabel("Codigo:");
 		lblCodigoProducto.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		lblCodigoProducto.setBounds(140, 11, 66, 19);

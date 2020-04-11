@@ -12,7 +12,9 @@ public class controlador_paneladministrarclientes implements ActionListener {
 		this.panel=panel;
 		
 		this.panel.boton_buscar.addActionListener(this);
-		this.panel.btnModificar.addActionListener(this);
+		this.panel.boton_modificar.addActionListener(this);
+		this.panel.boton_agregar.addActionListener(this);
+		this.panel.boton_eliminar.addActionListener(this);
 	}
 
 	public void actionPerformed(ActionEvent e) {
