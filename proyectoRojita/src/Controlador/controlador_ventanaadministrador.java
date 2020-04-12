@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 
 import Vista.paneladministrarclientes;
 import Vista.paneladministrarempleados;
+import Vista.paneladministrarfacturas;
+import Vista.paneladministrarordenes;
 import Vista.paneladministrarproductos;
 import Vista.paneladministrarproductosproveedor;
 import Vista.paneladministrarproveedores;
@@ -27,6 +29,7 @@ public class controlador_ventanaadministrador implements ActionListener {
 		this.ventana.boton_administrarproveedores.addActionListener(this);
 		this.ventana.boton_volver.addActionListener(this);
 		this.ventana.boton_administrarclientes.addActionListener(this);
+		this.ventana.boto_administrarfacturas.addActionListener(this);
 		
 	}
 	
@@ -56,6 +59,14 @@ public class controlador_ventanaadministrador implements ActionListener {
 			
 			
 		}else if(e.getSource() == ventana.boton_administrarordenes) {
+			paneladministrarordenes panel = new paneladministrarordenes();
+			controlador_paneladministrarordenes controlador = new controlador_paneladministrarordenes(panel);
+			
+			ventana.panelcambio.removeAll();
+			ventana.panelcambio.add(panel,BorderLayout.CENTER);
+			ventana.panelcambio.revalidate();
+			ventana.panelcambio.repaint();
+			
 		
 		}else if(e.getSource() == ventana.boton_administrarproductos) {
 			paneladministrarproductos panel = new paneladministrarproductos();
@@ -95,6 +106,17 @@ public class controlador_ventanaadministrador implements ActionListener {
 			ventana.panelcambio.add(panel,BorderLayout.CENTER);
 			ventana.panelcambio.revalidate();
 			ventana.panelcambio.repaint();
+			
+		}else if (e.getSource() == ventana.boto_administrarfacturas){
+			paneladministrarfacturas panel = new paneladministrarfacturas();
+			controlador_paneladministrarfacturas controlador = new controlador_paneladministrarfacturas(panel);
+			
+			ventana.panelcambio.removeAll();
+			ventana.panelcambio.add(panel,BorderLayout.CENTER);
+			ventana.panelcambio.revalidate();
+			ventana.panelcambio.repaint();
+			
+			
 			
 		}
 	}

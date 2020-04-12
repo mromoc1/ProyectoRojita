@@ -2,6 +2,7 @@ package Vista;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -106,21 +107,29 @@ public class paneladministrarempleados extends JPanel {
 		panel_5.add(lbltelefono);
 		
 		boton_agregar = new JButton("Agregar");
+		boton_agregar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		boton_agregar.setBackground(Color.LIGHT_GRAY);
 		boton_agregar.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		boton_agregar.setBounds(168, 102, 102, 23);
 		panel_5.add(boton_agregar);
 		
 		boton_buscar = new JButton("Buscar");
+		boton_buscar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		boton_buscar.setBackground(Color.LIGHT_GRAY);
 		boton_buscar.setBounds(280, 102, 102, 23);
 		panel_5.add(boton_buscar);
 		boton_buscar.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		
 		boton_modificar = new JButton("Modificar");
+		boton_modificar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		boton_modificar.setBackground(Color.LIGHT_GRAY);
 		boton_modificar.setBounds(392, 102, 102, 23);
 		panel_5.add(boton_modificar);
 		boton_modificar.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		
 		boton_eliminar = new JButton("Eliminar");
+		boton_eliminar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		boton_eliminar.setBackground(Color.LIGHT_GRAY);
 		boton_eliminar.setBounds(504, 102, 102, 23);
 		panel_5.add(boton_eliminar);
 		boton_eliminar.setFont(new Font("Century Gothic", Font.PLAIN, 14));
