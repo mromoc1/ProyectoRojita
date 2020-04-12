@@ -59,11 +59,6 @@ public class panelboletas extends JPanel {
 		panel_4.add(panel_5);
 		panel_5.setLayout(null);
 		
-		JLabel lblBuscarProducto = new JLabel("Buscar Cliente");
-		lblBuscarProducto.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		lblBuscarProducto.setBounds(10, 11, 120, 19);
-		panel_5.add(lblBuscarProducto);
-		
 		JLabel lblcodigo = new JLabel("Codigo:");
 		lblcodigo.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		lblcodigo.setBounds(138, 11, 55, 19);
