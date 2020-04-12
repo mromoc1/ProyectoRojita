@@ -20,6 +20,7 @@ public class paneladministrarempleados extends JPanel {
 	public JButton boton_modificar;
 	public JButton boton_eliminar;
 	public JButton boton_agregar;
+	public JButton boton_verregistromensual;
 	
 	
 	public JTextField camporut;
@@ -110,27 +111,27 @@ public class paneladministrarempleados extends JPanel {
 		boton_agregar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		boton_agregar.setBackground(Color.LIGHT_GRAY);
 		boton_agregar.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		boton_agregar.setBounds(168, 102, 102, 23);
+		boton_agregar.setBounds(63, 102, 102, 23);
 		panel_5.add(boton_agregar);
 		
 		boton_buscar = new JButton("Buscar");
 		boton_buscar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		boton_buscar.setBackground(Color.LIGHT_GRAY);
-		boton_buscar.setBounds(280, 102, 102, 23);
+		boton_buscar.setBounds(175, 102, 102, 23);
 		panel_5.add(boton_buscar);
 		boton_buscar.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		
 		boton_modificar = new JButton("Modificar");
 		boton_modificar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		boton_modificar.setBackground(Color.LIGHT_GRAY);
-		boton_modificar.setBounds(392, 102, 102, 23);
+		boton_modificar.setBounds(287, 102, 102, 23);
 		panel_5.add(boton_modificar);
 		boton_modificar.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		
 		boton_eliminar = new JButton("Eliminar");
 		boton_eliminar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		boton_eliminar.setBackground(Color.LIGHT_GRAY);
-		boton_eliminar.setBounds(504, 102, 102, 23);
+		boton_eliminar.setBounds(399, 102, 102, 23);
 		panel_5.add(boton_eliminar);
 		boton_eliminar.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		
@@ -144,6 +145,12 @@ public class paneladministrarempleados extends JPanel {
 		lblCargo.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		lblCargo.setBounds(53, 72, 66, 19);
 		panel_5.add(lblCargo);
+		
+		boton_verregistromensual = new JButton("Ver Registro Mensual");
+		boton_verregistromensual.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		boton_verregistromensual.setBackground(Color.LIGHT_GRAY);
+		boton_verregistromensual.setBounds(511, 102, 189, 23);
+		panel_5.add(boton_verregistromensual);
 		
 		panellista = new JPanel();
 		panellista.setBounds(10, 152, 775, 273);

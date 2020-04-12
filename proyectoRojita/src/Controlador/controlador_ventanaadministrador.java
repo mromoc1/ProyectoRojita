@@ -13,6 +13,7 @@ import Vista.paneladministrarordenes;
 import Vista.paneladministrarproductos;
 import Vista.paneladministrarproductosproveedor;
 import Vista.paneladministrarproveedores;
+import Vista.panelverliquidaciones;
 import Vista.ventanaadministrador;
 import Vista.ventanainicio;
 
@@ -30,6 +31,7 @@ public class controlador_ventanaadministrador implements ActionListener {
 		this.ventana.boton_volver.addActionListener(this);
 		this.ventana.boton_administrarclientes.addActionListener(this);
 		this.ventana.boto_administrarfacturas.addActionListener(this);
+		this.ventana.boton_registroliquidaciones.addActionListener(this);
 		
 	}
 	
@@ -110,6 +112,17 @@ public class controlador_ventanaadministrador implements ActionListener {
 		}else if (e.getSource() == ventana.boto_administrarfacturas){
 			paneladministrarfacturas panel = new paneladministrarfacturas();
 			controlador_paneladministrarfacturas controlador = new controlador_paneladministrarfacturas(panel);
+			
+			ventana.panelcambio.removeAll();
+			ventana.panelcambio.add(panel,BorderLayout.CENTER);
+			ventana.panelcambio.revalidate();
+			ventana.panelcambio.repaint();
+			
+			
+			
+		}else if(e.getSource() ==this.ventana.boton_registroliquidaciones) {
+			panelverliquidaciones panel = new panelverliquidaciones();
+			controlador_panelverliquidaciones controlador = new controlador_panelverliquidaciones(panel);
 			
 			ventana.panelcambio.removeAll();
 			ventana.panelcambio.add(panel,BorderLayout.CENTER);

@@ -1,6 +1,6 @@
 package Controlador;
 
-import Modelo.BDConnection;
+
 import Vista.ventanainicio;
 
 public class Main {

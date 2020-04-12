@@ -22,6 +22,7 @@ public class ventanaadministrador extends JFrame {
 	public JPanel panelcambio;
 	public JButton boton_administrarclientes;
 	public JButton boto_administrarfacturas;
+	public JButton boton_registroliquidaciones;
 
 	public ventanaadministrador() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -70,6 +71,11 @@ public class ventanaadministrador extends JFrame {
 		boto_administrarfacturas.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		boto_administrarfacturas.setBackground(Color.LIGHT_GRAY);
 		panel.add(boto_administrarfacturas);
+		
+		boton_registroliquidaciones = new JButton("Registro Liquidaciones");
+		boton_registroliquidaciones.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		boton_registroliquidaciones.setBackground(Color.LIGHT_GRAY);
+		panel.add(boton_registroliquidaciones);
 		
 		boton_volver = new JButton("VOLVER");
 		boton_volver.setFont(new Font("Century Gothic", Font.PLAIN, 14));
