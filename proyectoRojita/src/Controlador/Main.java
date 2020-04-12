@@ -1,7 +1,7 @@
 package Controlador;
 
-import Modelo.BDConnection;
 import Vista.ventanainicio;
+import crud.conexion;
 
 public class Main {
 	
