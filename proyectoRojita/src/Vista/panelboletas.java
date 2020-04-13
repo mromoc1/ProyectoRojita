@@ -2,6 +2,7 @@ package Vista;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -104,6 +105,8 @@ public class panelboletas extends JPanel {
 		panel_5.add(lbltelefono);
 		
 		boton_buscar = new JButton("Buscar");
+		boton_buscar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		boton_buscar.setBackground(Color.LIGHT_GRAY);
 		boton_buscar.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		boton_buscar.setBounds(816, 71, 89, 23);
 		panel_5.add(boton_buscar);

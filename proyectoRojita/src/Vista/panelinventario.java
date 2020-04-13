@@ -6,6 +6,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
+import java.awt.Cursor;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -103,6 +105,8 @@ public class panelinventario extends JPanel {
 		panel_5.add(lblPrecio);
 		
 		boton_buscar = new JButton("Buscar");
+		boton_buscar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		boton_buscar.setBackground(Color.LIGHT_GRAY);
 		boton_buscar.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		boton_buscar.setBounds(817, 39, 99, 23);
 		panel_5.add(boton_buscar);
