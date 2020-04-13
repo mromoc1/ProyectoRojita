@@ -57,8 +57,6 @@ public class controlador_panelventa implements ActionListener, KeyListener{
 				e1.printStackTrace();
 			}
 			calculaValorTotal();
-			
-			
 		}
 		
 		
