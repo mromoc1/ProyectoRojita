@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import Vista.ventanaadministrador;
 import Vista.ventanaempleados;
 import Vista.ventanainicio;
+import Vista.ventanalogin;
 
 public class controlador_ventanainicio implements ActionListener  {
 	
@@ -31,11 +32,11 @@ public class controlador_ventanainicio implements ActionListener  {
 
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == ventana.boton_ingresaradministrador) {
-			ventanaadministrador ventanaadministrador = new ventanaadministrador();
-			controlador_ventanaadministrador controlador = new controlador_ventanaadministrador(ventanaadministrador);
-			controlador.iniciarventana();
-			this.ventana.dispose();
 			
+			ventanalogin ventanalogin = new ventanalogin();
+			controlador_login controladorlogin = new controlador_login(ventanalogin);
+			controladorlogin.iniciarlogin();
+			this.ventana.dispose();
 			
 		}else if(e.getSource() == ventana.boton_ingresarempleado) {
 			
@@ -47,6 +48,5 @@ public class controlador_ventanainicio implements ActionListener  {
 			
 		}
 	}
-
 	
 }

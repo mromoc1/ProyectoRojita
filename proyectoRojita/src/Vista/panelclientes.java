@@ -23,6 +23,7 @@ public class panelclientes extends JPanel {
 	public JTextField campotelefono;
 	public JPanel panellista;
 	public JTable table;
+	public DefaultTableModel modelo;
 
 	public panelclientes() {
 		setLayout(new BorderLayout(0, 0));
@@ -113,17 +114,18 @@ public class panelclientes extends JPanel {
 		panel_4.add(panellista);
 		panellista.setLayout(new BorderLayout(0, 0));
 		
+		modelo = new DefaultTableModel();
 		JScrollPane scrollPane = new JScrollPane();
 		panellista.add(scrollPane, BorderLayout.CENTER);
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Rut", "Nombre", "Apellido", "Telefono"
-			}
-		));
+		table = new JTable(modelo);
+		table.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		
+		modelo.addColumn("Rut");
+		modelo.addColumn("Nombre");
+		modelo.addColumn("Apellido");
+		modelo.addColumn("Telefono");
+		
 		scrollPane.setViewportView(table);
 		
 		JPanel panel_1 = new JPanel();

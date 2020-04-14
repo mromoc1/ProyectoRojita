@@ -25,6 +25,7 @@ public class panelboletas extends JPanel {
 	public JTextField campodescuento;
 	public JTextField campototal;
 	public JTable table;
+	public DefaultTableModel modelo;
 	
 	public panelboletas() {
 
@@ -117,9 +118,9 @@ public class panelboletas extends JPanel {
 		campodescuento.setBounds(216, 72, 214, 20);
 		panel_5.add(campodescuento);
 		
-		JLabel lblTotalCompra = new JLabel("Descuento:");
+		JLabel lblTotalCompra = new JLabel("Descuento (%):");
 		lblTotalCompra.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		lblTotalCompra.setBounds(115, 71, 78, 19);
+		lblTotalCompra.setBounds(90, 71, 103, 19);
 		panel_5.add(lblTotalCompra);
 		
 		JLabel lblBeneficio = new JLabel("Total:");
@@ -138,18 +139,20 @@ public class panelboletas extends JPanel {
 		panel_4.add(panellista);
 		panellista.setLayout(new BorderLayout(0, 0));
 		
+		modelo = new DefaultTableModel();
 		JScrollPane scrollPane = new JScrollPane();
 		panellista.add(scrollPane, BorderLayout.CENTER);
 		
-		table = new JTable();
+		table = new JTable(modelo);
 		table.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-					"Codigo", "Nombre", "Categoria", "Cantidad", "Precio Unitario"
-			}
-		));
+		
+		modelo.addColumn("Codigo");
+		modelo.addColumn("Rut Cliente");
+		modelo.addColumn("Rut Empleado");
+		modelo.addColumn("Beneficio");
+		modelo.addColumn("Fecha");
+		modelo.addColumn("Total");
+		
 		scrollPane.setViewportView(table);
 		
 		JPanel panel_1 = new JPanel();

@@ -3,6 +3,8 @@ package Controlador;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -53,7 +55,12 @@ public class controlador_ventanaempleados implements ActionListener{
 			
 		}else if(e.getSource() == ventana.boton_mostrarinventario) {
 			panelinventario panel = new panelinventario();
-			controlador_panelinventario controlador = new controlador_panelinventario(panel);
+			try {
+				controlador_panelinventario controlador = new controlador_panelinventario(panel);
+			} catch (ClassNotFoundException | SQLException | IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			
 			ventana.panelcambio.removeAll();
 			ventana.panelcambio.add(panel,BorderLayout.CENTER);
@@ -80,7 +87,12 @@ public class controlador_ventanaempleados implements ActionListener{
 			
 		}else if(e.getSource() == ventana.boton_vercliente) {
 			panelclientes panel = new panelclientes();
-			controlador_panelclientes controlador = new controlador_panelclientes(panel);
+			try {
+				controlador_panelclientes controlador = new controlador_panelclientes(panel);
+			} catch (ClassNotFoundException | SQLException | IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			
 			ventana.panelcambio.removeAll();
 			ventana.panelcambio.add(panel,BorderLayout.CENTER);

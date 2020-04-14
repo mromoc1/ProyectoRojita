@@ -3,7 +3,14 @@ package crud;
 import java.io.*;
 import java.sql.*;
 
+import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
+
+
+
 
 /**
  * Clase para iniciar y cerrar la coneccion remota con la BD
@@ -205,17 +212,124 @@ public class conexion {
    	    java.util.Date today = new java.util.Date();
    	    return new java.sql.Date(today.getTime());
    	}
+       
+  
+       public ResultSet MostrarProductos() throws ClassNotFoundException {
+
+           Connection conData = null;//conn
+           Statement stmData; 
+           ResultSet rsData = null;
+           
+           try {
+
+               conData = conn();
+               stmData = conData.createStatement();
+               
+               rsData = stmData.executeQuery("select * from productos order by nombre");
+
+               conData.close(); //Se cierrab la conexion a la base de datos.
+               return rsData;
+              
+           } catch (SQLException e) {
+
+           	JOptionPane.showMessageDialog(null, "Error en la conexion: "+e.getMessage());
+               return null;
+           }
+       }
+       
+       public ResultSet rs_buscarproducto(String id) throws ClassNotFoundException {
+
+           Connection conData = null;
+           Statement stmData; 
+           ResultSet rsData = null;
+           
+           try {
+
+               conData = conn();
+               stmData = conData.createStatement();
+               
+               rsData = stmData.executeQuery("select * from productos where idproducto = "+id);
+
+               conData.close();
+               return rsData;
+              
+           } catch (SQLException e) {
+
+           	JOptionPane.showMessageDialog(null, "Error en la conexion: "+e.getMessage());
+               return null;
+           }
+       }
+       
+       public ResultSet rs_MostrarClientes() throws ClassNotFoundException {
+
+           Connection conData = null;//conn
+           Statement stmData; 
+           ResultSet rsData = null;
+           
+           try {
+
+               conData = conn();
+               stmData = conData.createStatement();
+               
+               rsData = stmData.executeQuery("select C.idcliente, C.nombre, C.apellido, T.telefonos from cliente as C, telefono_cliente as T where C.idcliente = T.idcliente order by C.nombre");
+
+               conData.close(); //Se cierrab la conexion a la base de datos.
+               return rsData;
+              
+           } catch (SQLException e) {
+
+           	JOptionPane.showMessageDialog(null, "Error en la conexion: "+e.getMessage());
+               return null;
+           }
+       }
+       
+       public ResultSet rs_BuscarCliente(String rut) throws ClassNotFoundException {
+           Connection conData = null;
+           Statement stmData; 
+           ResultSet rsData = null;
+           try {
+               conData = conn();
+               stmData = conData.createStatement();
+               rsData = stmData.executeQuery("select C.idcliente, C.nombre, C.apellido, T.telefonos from cliente as C, telefono_cliente as T where C.idcliente = T.idcliente and C.idcliente = "+rut);
+               conData.close();
+               return rsData;
+           } catch (SQLException e) {
+           	JOptionPane.showMessageDialog(null, "Error en la conexion: "+e.getMessage());
+               return null;
+           }
+       }
 	
+       public ResultSet rs_MostrarBoletas() throws ClassNotFoundException {
+           Connection conData = null;//conn
+           Statement stmData; 
+           ResultSet rsData = null;
+           try {
+               conData = conn();
+               stmData = conData.createStatement();
+               rsData = stmData.executeQuery("select Bo.idboleta, Bo.idcliente, Bo.idempleado, Be.porcentaje, Bo.fecha, total from boleta as Bo, beneficios as Be where Bo.idbeneficios = Be.idbeneficios order by Bo.fecha");
+               conData.close(); 
+               return rsData;
+           } catch (SQLException e) {
+           	JOptionPane.showMessageDialog(null, "Error en la conexion: "+e.getMessage());
+               return null;
+           }
+       }
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+       public ResultSet rs_BuscarBoleta(String codigoboleta) throws ClassNotFoundException {
+           Connection conData = null;
+           Statement stmData; 
+           ResultSet rsData = null;
+           try {
+               conData = conn();
+               stmData = conData.createStatement();
+               rsData = stmData.executeQuery("select Bo.idboleta, Bo.idcliente, Bo.idempleado, Be.porcentaje, Bo.fecha, total from boleta as Bo, beneficios as Be where Bo.idbeneficios = Be.idbeneficios and Bo.idboleta = "+codigoboleta);
+               conData.close();
+               return rsData;
+           } catch (SQLException e) {
+           	JOptionPane.showMessageDialog(null, "Error en la conexion: "+e.getMessage());
+               return null;
+           }
+       }
 	
 	
 	
