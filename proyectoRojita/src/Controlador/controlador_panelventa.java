@@ -31,17 +31,26 @@ public class controlador_panelventa implements ActionListener, KeyListener{
 		if(e.getSource()==this.panel.boton_agregarproducto) {
 			
 			
-			try {
-				agregaProducto();
-			} catch (ClassNotFoundException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+			if(panel.campocantidad.getText().length() != 0 || panel.campocodigoproducto.getText().length() != 0 || panel.camporutcliente.getText().length() != 0 || panel.camporutempleado.getText().length() != 0 ) {
+				
+				try {
+					agregaProducto();
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				//calculaValorTotal();
+				//identificaBeneficio();
+				panel.montototal.setText("Monto Final: "+montoFinal());
+			}else {
+				
+				JOptionPane.showMessageDialog(null, "Ingrese los campos solicitados");
 			}
 			
 		
@@ -101,7 +110,7 @@ public class controlador_panelventa implements ActionListener, KeyListener{
 	
 	
 	/**
-	 * metodo encargado de insertar los datos en la tabla boleta.
+	 * Metodo encargado de insertar los datos en la tabla boleta.
 	 * @throws IOException 
 	 */
 	public void generaBoleta() throws ClassNotFoundException, IOException {
@@ -111,7 +120,7 @@ public class controlador_panelventa implements ActionListener, KeyListener{
 		String idEmpleado = panel.camporutempleado.getText();
 		String boleta = generaIdBoleta();
 		conexion cone = new conexion();
-		cone.insertaBoltea(boleta, idCliente, idEmpleado,"1", calculaValorTotal());
+		cone.insertaBoltea(boleta, idCliente, idEmpleado,identificaBeneficio(), montoFinal());
 		
 		generaCarro(boleta);
 		actulizaStock();
@@ -119,7 +128,7 @@ public class controlador_panelventa implements ActionListener, KeyListener{
 	
 	
 	/**
-	 * metodo encargado de insertar los datos en la tabla carro.
+	 * Metodo encargado de insertar los datos en la tabla carro.
 	 * @throws IOException 
 	 */
 	public void generaCarro(String id_boleta) throws ClassNotFoundException, IOException {
@@ -134,7 +143,7 @@ public class controlador_panelventa implements ActionListener, KeyListener{
 	
 	
 	/**
-	 * metodo encargado de actualizar el stock en la tabla productos.
+	 * Metodo encargado de actualizar el stock en la tabla productos.
 	 * @throws IOException 
 	 */
 	public void actulizaStock() throws ClassNotFoundException, IOException {
@@ -148,7 +157,7 @@ public class controlador_panelventa implements ActionListener, KeyListener{
 	
 	
 	/**
-	 * genera un id para la boleta.
+	 * Genera un id para la boleta.
 	 */
 	public String generaIdBoleta() {
 			
@@ -157,19 +166,93 @@ public class controlador_panelventa implements ActionListener, KeyListener{
 	}
 	
 	/**
-	 * calcula el valor final de la compra.
+	 * calcula el valor final de la compra sin descuento ya que solo suma el valor de cada producto por su cantidad
+	 * @return valor sin descuento.
 	 */
 	public String calculaValorTotal() {
 		
 		 int ValorTotalCompra=0;
+		 int cantidad = Integer. parseInt(panel.campocantidad.getText()) ;
 		 for (int i = 0; i < panel.table.getRowCount(); i++) {
 			 
 			 int valor =Integer. parseInt( panel.table.getValueAt(i,3).toString());
-			 ValorTotalCompra = ValorTotalCompra + valor ;
+			 ValorTotalCompra = ValorTotalCompra + valor * cantidad ;
 		 }
 		 
 		 return  Integer.toString(ValorTotalCompra);
 	
 	}
 	
+	
+	/**
+	 * Calcula monto final de la compra con el descuento incluido
+	 * @return monto final.
+	 */
+	public String montoFinal() {
+		
+		int ValorTotalCompra = Integer.parseInt(calculaValorTotal());
+		
+		if(identificaBeneficio() == "0") {
+			 
+			panel.Descuento.setText("0%");
+			 return  Integer.toString(ValorTotalCompra);
+			 
+		 }else if(identificaBeneficio() == "1"){
+			 
+			 panel.Descuento.setText("5%");
+			 return Integer.toString((int) (ValorTotalCompra-(ValorTotalCompra*0.05)));
+			 
+		 }else if(identificaBeneficio() == "2"){
+			 
+			 panel.Descuento.setText("10%");
+			 return Integer.toString((int) (ValorTotalCompra-(ValorTotalCompra*0.1)));
+			 
+		 }else if(identificaBeneficio() == "3"){
+			 
+			 panel.Descuento.setText("15%");
+			 return Integer.toString((int) (ValorTotalCompra-(ValorTotalCompra*0.15)));
+			 
+		 }else if(identificaBeneficio() == "4"){
+			 
+			 panel.Descuento.setText("20%");
+			 return Integer.toString((int) (ValorTotalCompra-(ValorTotalCompra*0.15)));
+		 }
+		return "0";
+	}
+	
+	
+	/**
+	 * Identifica el tipo de beneficio
+	 * @return tipo de beneficio.
+	 */
+	public String identificaBeneficio() {
+		
+		int beneficio =  Integer. parseInt(calculaValorTotal());
+		System.out.println("El monto total es: "+beneficio);
+		if(beneficio <= 2999) {
+			
+			return "0";
+						
+		}else if(beneficio >= 3000 && beneficio <= 5000) {
+
+			return "1";
+			
+		}else if (beneficio >= 5001 && beneficio <= 10000) {
+			
+			return "2";
+			
+		}else if(beneficio >= 10001 && beneficio <= 20000) {
+
+			return "3";
+			
+		}else if(beneficio >= 20001 && beneficio <= 10000) {
+
+			return "4";
+		}
+		
+		return "-1";
+		
+	}
+	
 }
+
