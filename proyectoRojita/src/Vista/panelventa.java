@@ -13,9 +13,6 @@ import java.awt.Color;
 import java.awt.Cursor;
 
 import javax.swing.JButton;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 
 public class panelventa extends JPanel {
 
@@ -27,8 +24,6 @@ public class panelventa extends JPanel {
 	public JTextField campocantidad;
 	public JButton boton_agregarproducto;
 	public JButton boton_finalizarcompra;
-	public JTable table;
-	public DefaultTableModel modelo;
 	
 	
 	public panelventa() {
@@ -151,29 +146,9 @@ public class panelventa extends JPanel {
 		JPanel panel_6 = new JPanel();
 		panel_1.add(panel_6, BorderLayout.NORTH);
 		
-		modelo = new DefaultTableModel();
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0)));
 		add(panel_2, BorderLayout.CENTER);
-		panel_2.setLayout(new BorderLayout(0, 0));
-		
-		JScrollPane scrollPane = new JScrollPane();
-		panel_2.add(scrollPane, BorderLayout.CENTER);
-		
-		table = new JTable(modelo);
-		table.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		
-		modelo.addColumn("Id");
-		modelo.addColumn("Nombre");
-		modelo.addColumn("categoria");
-		modelo.addColumn("Precio");
-		modelo.addColumn("Cantidad");
-		
-		
-		campocodigoproducto.setText("7801223100019");
-		camporutempleado.setText("161101834");
-		camporutcliente.setText("175487714");
-		scrollPane.setViewportView(table);
 		
 	}
 
