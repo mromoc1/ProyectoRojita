@@ -47,7 +47,7 @@ public class controlador_panelinventario implements ActionListener {
 	public void CargarProductos() throws ClassNotFoundException, SQLException, IOException {
 		
 		conexion cone = new conexion();
-		ResultSet tabla = cone.MostrarProductos();
+		ResultSet tabla = cone.rs_MostrarProductos();
 		if(tabla != null) {
 			
 			while(tabla.next()){

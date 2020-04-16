@@ -3,12 +3,14 @@ package Controlador;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 import javax.swing.JOptionPane;
-import java.sql.*;
-import Vista.paneladministrarinformaciones;
-import Vista.panelnuevaorden;
 
+import Vista.paneladministrarinformaciones;
+import Vista.panelinformacionsueldo;
+import Vista.panelnuevaorden;
+import Vista.panelproductosporagotar;
 import crud.conexion;
 
 public class controlador_paneladministrarinformaciones implements ActionListener {
@@ -17,7 +19,7 @@ public class controlador_paneladministrarinformaciones implements ActionListener
 	public controlador_paneladministrarinformaciones(paneladministrarinformaciones panel) {
 		this.panel=panel;
 		
-		this.panel.boton_consulta1.addActionListener(this);
+		/*this.panel.boton_consulta1.addActionListener(this);*/
 		this.panel.boton_consulta2.addActionListener(this);
 		this.panel.boton_consulta3.addActionListener(this);
 		this.panel.boton_consulta4.addActionListener(this);
@@ -26,26 +28,36 @@ public class controlador_paneladministrarinformaciones implements ActionListener
 
 
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == panel.boton_consulta1) {
+		/*if(e.getSource() == panel.boton_consulta1) {
 
-			String mes = JOptionPane.showInputDialog("Ingrese el mes que desea buscar la planilla de sueldos");
+			//String mes = JOptionPane.showInputDialog("Ingrese el mes que desea buscar la planilla de sueldos");
 			//Rs = obtener_sueldos(mes);
 			//controlador_graficos.verTabla(Rs);
 			
+			/*panelinformacionsueldo ventana = new panelinformacionsueldo();
+			controlador_panelinformacionsueldo controlador = new controlador_panelinformacionsueldo(ventana);
+			controlador.iniciarventana();
+
 			
-		}
+			
+		}*/
 		if(e.getSource() == panel.boton_consulta2) {
 			
-			String stock =  JOptionPane.showInputDialog("Ingrese el minimo de stock que debiera tener de algun producto");
+			//String stock =  JOptionPane.showInputDialog("Ingrese el minimo de stock que debiera tener de algun producto");
 			//Rs = obtener_proveedores(stock);
 			//controlador_graficos.verTabla(Rs)
+			
+			panelproductosporagotar ventana = new panelproductosporagotar();
+			controlador_panelproductosporagotar controlador = new controlador_panelproductosporagotar(ventana);
+			controlador.iniciarventana();
 			
 
 			
 		}
 		if(e.getSource() == panel.boton_consulta3) {
-			
-			
+			//String stock =  JOptionPane.showInputDialog("Ingrese el minimo de stock que debiera tener de algun producto");
+			//Rs = obtener_proveedores(stock);
+			//controlador_graficos.verTabla(Rs)
 			int opcion = JOptionPane.showOptionDialog(panel.boton_consulta3,
 					   "¿Qué búsqueda de venta quiere realizar?", 
 					   "Ventas",
@@ -81,13 +93,13 @@ public class controlador_paneladministrarinformaciones implements ActionListener
 				}
 			}
 			
-
 			
 		}
 		if(e.getSource() == panel.boton_consulta4) {
 			//String stock =  JOptionPane.showInputDialog("Ingrese el minimo de stock que debiera tener de algun producto");
 			//Rs = obtener_proveedores(stock);
 			//controlador_graficos.verTabla(Rs)
+
 			try {
 				conexion con = new conexion();
 				ResultSet Rs = con.mustraBeneficiosTotalesPorMes("Beneficios");
@@ -96,7 +108,6 @@ public class controlador_paneladministrarinformaciones implements ActionListener
 			catch(Exception er) {
 				
 			}
-			
 
 			
 		}

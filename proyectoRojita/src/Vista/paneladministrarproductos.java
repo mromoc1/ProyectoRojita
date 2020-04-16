@@ -13,6 +13,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.SwingConstants;
 
 public class paneladministrarproductos extends JPanel {
 	public JButton boton_buscar;
@@ -30,6 +31,7 @@ public class paneladministrarproductos extends JPanel {
 	
 	public JPanel panellista;
 	public JTable table;
+	public DefaultTableModel modelo;
 	
 
 	
@@ -91,6 +93,7 @@ public class paneladministrarproductos extends JPanel {
 		panel_5.add(lblapellido);
 		
 		camponombre = new JTextField();
+		camponombre.setHorizontalAlignment(SwingConstants.LEFT);
 		camponombre.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		camponombre.setColumns(10);
 		camponombre.setBounds(129, 40, 214, 20);
@@ -151,17 +154,22 @@ public class paneladministrarproductos extends JPanel {
 		panel_4.add(panellista);
 		panellista.setLayout(new BorderLayout(0, 0));
 		
+		
+		modelo = new DefaultTableModel();
 		JScrollPane scrollPane = new JScrollPane();
 		panellista.add(scrollPane, BorderLayout.CENTER);
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Codigo", "Nombre", "Categoria", "Stock", "Precio"
-			}
-		));
+		table = new JTable(modelo);
+		table.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		
+		modelo.addColumn("Codigo");
+		modelo.addColumn("Nombre");
+		modelo.addColumn("Categoria");
+		modelo.addColumn("Precio");
+		modelo.addColumn("Stock");
+		
+		
+		
 		scrollPane.setViewportView(table);
 		
 		JPanel panel_1 = new JPanel();
