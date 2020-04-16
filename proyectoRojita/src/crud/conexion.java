@@ -389,7 +389,9 @@ public class conexion {
              }
          }
          
-         
+         String consulta = "SELECT DISTINCT Y.codigoproducto, Y.nombreproducto,Y.idproveedor, prov.nombre,prod.stock, Y.preciocompra FROM (SELECT X.idproducto as codigoproducto, prod.nombre as nombreproducto,pp.idproveedor as idproveedor, X.preciominimo as preciocompra "
+         + "FROM (SELECT idproducto,MIN(precio_compra) as preciominimo FROM productos_proveedor GROUP BY idproducto ORDER BY idproducto) as X, productos as prod, productos_proveedor as pp WHERE X.idproducto = prod.idproducto AND X.preciominimo = pp.precio_compra"
+         + "AND prod.idproducto = pp.idproducto ORDER BY prod.nombre) as Y, productos as prod, proveedor as prov WHERE Y.codigoproducto = prod.idproducto AND Y.idproveedor = prov.idproveedor AND prod.stock <= 5 ORDER BY Y.nombreproducto;";
          public ResultSet mustraVentasProductosPorMes(String id) throws ClassNotFoundException {
 
              Connection conData = null;//conn
