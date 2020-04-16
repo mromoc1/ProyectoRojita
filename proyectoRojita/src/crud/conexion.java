@@ -2,16 +2,8 @@ package crud;
 
 import java.io.*;
 import java.sql.*;
-import java.text.SimpleDateFormat;
 
-import javax.swing.JList;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
-
-
-
-
+import javax.swing.*;
 
 /**
  * Clase para iniciar y cerrar la coneccion remota con la BD
@@ -50,7 +42,6 @@ public class conexion {
 		
    		try {
 			conn = DriverManager.getConnection(url, user, pass);
-			st = conn.createStatement();
 			
 			System.out.println("La conexion se establecio con exito");
 			
