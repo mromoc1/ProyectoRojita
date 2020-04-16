@@ -12,8 +12,6 @@ import javax.swing.*;
  */
 public class conexion {
 
-	//String config = "/proyectoRojita/src/crud/config.bin";
-	String config = "/src/crud/config.bin";
 	String user = null;
 	String pass = null;
 	String url = null;
@@ -25,15 +23,10 @@ public class conexion {
 	 * ruta de la BD, junto a las credenciales
 	 * @throws IOException
 	 */
-	public conexion() throws IOException {
-		String c = System.getProperty("user.dir")+config;
-		System.out.println(c);
-		FileReader f = new FileReader(c);
-		BufferedReader b = new BufferedReader(f);
-		url = b.readLine().replaceAll("url:", "");
-		user = b.readLine().replaceAll("admin:", "");
-		pass = b.readLine().replaceAll("admin_pass:", "");
-		b.close();
+	public conexion() {
+		user = "rojita_dev";
+		pass = "okL56g12";
+		url = "jdbc:postgresql://10.4.3.195:5432/rojita";
 	}
 	
 	/**
@@ -103,7 +96,8 @@ public class conexion {
    	 * Inserta los datos a la tabla boleta en la bd
    	 * @param id_boleta, id_cliente, id_empleado, id_beneficio, monto_total.
    	 */
-       public void insertaBoltea(String id, String id_cliente, String id_empleado, String id_beneficio, String total) throws ClassNotFoundException {
+       @SuppressWarnings("unused")
+	public void insertaBoltea(String id, String id_cliente, String id_empleado, String id_beneficio, String total) throws ClassNotFoundException {
 
            Connection conData = null;//conn
            Statement stmData; 
