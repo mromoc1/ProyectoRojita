@@ -42,7 +42,7 @@ public class controlador_paneladministrarproveedores implements ActionListener{
 				conexion conexion = new conexion();
 				conexion.AgregarProveedor(this.panel.campoid.getText(), this.panel.camponombre.getText());
 				
-			} catch (IOException | ClassNotFoundException e1) {
+			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			}
 		}if(e.getSource() == panel.boton_eliminar) {
@@ -50,7 +50,7 @@ public class controlador_paneladministrarproveedores implements ActionListener{
 			try {
 				conexion conexion = new conexion();
 				conexion.EliminarProveedor(this.panel.campoid.getText());
-			} catch (ClassNotFoundException | IOException e1) {
+			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			}
 		}if(e.getSource() == panel.boton_modificar) {
@@ -59,7 +59,7 @@ public class controlador_paneladministrarproveedores implements ActionListener{
 			try {
 				conexion conexion = new conexion();
 				conexion.ModificarProveedor(this.panel.campoid.getText(), this.panel.camponombre.getText());
-			} catch (ClassNotFoundException | IOException e1) {
+			} catch (ClassNotFoundException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}

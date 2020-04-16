@@ -48,7 +48,7 @@ public class controlador_paneladministrarproductos implements ActionListener{
 				panel.campocategoria.setText("");
 				panel.campostock.setText("");
 				
-			} catch (ClassNotFoundException | IOException e1) {
+			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			}
 		}if(e.getSource() == panel.boton_eliminar) {
@@ -63,7 +63,7 @@ public class controlador_paneladministrarproductos implements ActionListener{
 				panel.campoprecio.setText("");
 				panel.campocategoria.setText("");
 				panel.campostock.setText("");
-			} catch (ClassNotFoundException | IOException e1) {
+			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			}
 			
@@ -77,7 +77,7 @@ public class controlador_paneladministrarproductos implements ActionListener{
 				panel.campoprecio.setText("");
 				panel.campocategoria.setText("");
 				panel.campostock.setText("");
-			} catch (ClassNotFoundException | IOException e1) {
+			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			}
 		}

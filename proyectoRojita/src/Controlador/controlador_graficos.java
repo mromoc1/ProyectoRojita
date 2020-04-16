@@ -5,21 +5,10 @@ package Controlador;
 	
 	import javax.swing.JFrame;
 	import javax.swing.JPanel;
-	
-	import org.jfree.chart.ChartFactory;
-	import org.jfree.chart.ChartPanel;
-	import org.jfree.chart.JFreeChart;
-	import org.jfree.chart.plot.PlotOrientation;
-	import org.jfree.data.xy.XYSeries;
-	import org.jfree.data.xy.XYSeriesCollection;
-	import org.jfree.chart.ChartFactory;
-	import org.jfree.chart.ChartUtilities;
-	import org.jfree.chart.JFreeChart;
-	import org.jfree.chart.JFreeChart;
-	import org.jfree.chart.plot.*;
-	import org.jfree.data.category.DefaultCategoryDataset;
-	import org.jfree.data.general.DefaultPieDataset;
-	import java.io.*;
+
+import org.jfree.chart.*;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.*;
 
 	public class controlador_graficos {
 		

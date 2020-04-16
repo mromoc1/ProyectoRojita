@@ -40,7 +40,7 @@ public class controlador_paneladministrarproductosproveedor implements ActionLis
 			try {
 				conexion conexion = new conexion();
 				conexion.AgregarProductoProveedor(panel.campoidproveedor.getText(), this.panel.campocodigo.getText(), panel.campopreciocompra.getText());
-			} catch (IOException | ClassNotFoundException e1) {
+			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			}
 			
@@ -50,7 +50,7 @@ public class controlador_paneladministrarproductosproveedor implements ActionLis
 			try {
 				conexion conexion = new conexion();
 				conexion.ModificarProductoProveedor(panel.campoidproveedor.getText(), this.panel.campocodigo.getText(), panel.campopreciocompra.getText());
-			} catch (IOException | ClassNotFoundException e1) {
+			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			}
 			
@@ -58,7 +58,7 @@ public class controlador_paneladministrarproductosproveedor implements ActionLis
 			try {
 				conexion conexion = new conexion();
 				conexion.EliminarProductoProveedor(panel.campoidproveedor.getText(), this.panel.campocodigo.getText());
-			} catch (IOException | ClassNotFoundException e1) {
+			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			}
 		}else if(e.getSource() == panel.boton_buscar) {

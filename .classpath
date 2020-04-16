@@ -8,5 +8,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="lib" path="Libreria/postgresql-42.2.12.jar"/>
+	<classpathentry kind="lib" path="proyectoRojita/Libreria/jfreechart-1.0.19/jfreechart-1.0.19/jfreechart-1.0.19-demo.jar"/>
 	<classpathentry kind="output" path="proyectoRojita/bin"/>
 </classpath>
