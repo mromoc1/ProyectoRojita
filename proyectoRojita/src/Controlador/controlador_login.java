@@ -58,7 +58,7 @@ public class controlador_login implements ActionListener  {
 			char[] clave = ventanalogin.pwd.getPassword();
 			String clavefinal = new String(clave);
 			
-			if(ventanalogin.textUsuario.getText().equals("1")&&clavefinal.equals("1")){
+			if(ventanalogin.textUsuario.getText().equals("121714825")&&clavefinal.equals("123")){
 				
 					JOptionPane.showMessageDialog(null, "Bienvenido Don Fernando","Ingreso Permitido",JOptionPane.INFORMATION_MESSAGE);
 					ventanaadministrador ventanaadministrador = new ventanaadministrador();

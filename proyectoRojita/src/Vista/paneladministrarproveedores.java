@@ -21,12 +21,13 @@ public class paneladministrarproveedores extends JPanel {
 	public JButton boton_agregar;
 	
 	
-	public JTextField camporut;
+	public JTextField campoid;
 	public JTextField camponombre;
 	
 	
 	public JPanel panellista;
 	public JTable table;
+	public DefaultTableModel modelo;
 
 	public paneladministrarproveedores() {
 setLayout(new BorderLayout(0, 0));
@@ -61,11 +62,11 @@ setLayout(new BorderLayout(0, 0));
 		lblrut.setBounds(63, 11, 33, 19);
 		panel_5.add(lblrut);
 		
-		camporut = new JTextField();
-		camporut.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		camporut.setBounds(129, 10, 214, 20);
-		panel_5.add(camporut);
-		camporut.setColumns(10);
+		campoid = new JTextField();
+		campoid.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		campoid.setBounds(129, 10, 214, 20);
+		panel_5.add(campoid);
+		campoid.setColumns(10);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
 		lblNombre.setFont(new Font("Century Gothic", Font.PLAIN, 14));
@@ -111,17 +112,15 @@ setLayout(new BorderLayout(0, 0));
 		panel_4.add(panellista);
 		panellista.setLayout(new BorderLayout(0, 0));
 		
+		modelo = new DefaultTableModel();
 		JScrollPane scrollPane = new JScrollPane();
 		panellista.add(scrollPane, BorderLayout.CENTER);
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"ID Proveedor", "Nombre"
-			}
-		));
+		table = new JTable(modelo);
+		
+		modelo.addColumn("ID proveedor");
+		modelo.addColumn("Nombre");
+		
 		scrollPane.setViewportView(table);
 		
 		JPanel panel_1 = new JPanel();

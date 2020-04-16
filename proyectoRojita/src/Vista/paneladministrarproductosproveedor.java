@@ -29,6 +29,7 @@ public class paneladministrarproductosproveedor extends JPanel {
 	
 	public JPanel panellista;
 	public JTable table;
+	public DefaultTableModel modelo;
 	
 	
 	public paneladministrarproductosproveedor() {
@@ -125,17 +126,20 @@ setLayout(new BorderLayout(0, 0));
 		panel_4.add(panellista);
 		panellista.setLayout(new BorderLayout(0, 0));
 		
+		modelo = new DefaultTableModel();
 		JScrollPane scrollPane = new JScrollPane();
 		panellista.add(scrollPane, BorderLayout.CENTER);
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Codigo", "Nombre", "Categoria"
-			}
-		));
+		table = new JTable(modelo);
+		
+		modelo.addColumn("ID proveedor");
+		modelo.addColumn("Proveedor");
+		modelo.addColumn("Codigo producto");
+		modelo.addColumn("Nombre");
+		modelo.addColumn("Precio compra");
+		
+		
+	
 		scrollPane.setViewportView(table);
 		
 		JPanel panel_1 = new JPanel();

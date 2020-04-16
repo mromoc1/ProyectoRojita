@@ -168,13 +168,7 @@ public class panelventa extends JPanel {
 		modelo.addColumn("categoria");
 		modelo.addColumn("Precio");
 		modelo.addColumn("Cantidad");
-		
-		
-		campocodigoproducto.setText("7801223100019");
-		camporutempleado.setText("161101834");
-		camporutcliente.setText("175487714");
-		scrollPane.setViewportView(table);
-		
+
 	}
 
 }

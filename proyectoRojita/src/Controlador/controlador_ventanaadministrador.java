@@ -124,7 +124,9 @@ public class controlador_ventanaadministrador implements ActionListener {
 			
 		}else if (e.getSource() == ventana.boton_administrarinformaciones){
 			paneladministrarinformaciones panel = new paneladministrarinformaciones();
+			System.out.println("FUNCIONA");
 			controlador_paneladministrarinformaciones controlador = new controlador_paneladministrarinformaciones(panel);
+			System.out.println("PASO");
 			ventana.panelcambio.removeAll();
 			ventana.panelcambio.add(panel,BorderLayout.CENTER);
 			ventana.panelcambio.revalidate();

@@ -2,10 +2,10 @@ package Controlador;
 	
 	import java.awt.BorderLayout;
 	import java.sql.*;
-
+	
 	import javax.swing.JFrame;
 	import javax.swing.JPanel;
-
+	
 	import org.jfree.chart.ChartFactory;
 	import org.jfree.chart.ChartPanel;
 	import org.jfree.chart.JFreeChart;
@@ -20,6 +20,7 @@ package Controlador;
 	import org.jfree.data.category.DefaultCategoryDataset;
 	import org.jfree.data.general.DefaultPieDataset;
 	import java.io.*;
+
 	public class controlador_graficos {
 		
 		public controlador_graficos() {
@@ -27,11 +28,12 @@ package Controlador;
 		}
 	    
 	    
-	    public static void graficoPie(String titulo, int numero){
+	    /*public static void graficoPie(String titulo, int numero){
 	        
 	        DefaultPieDataset grafico = new DefaultPieDataset();
 	        try{
 	        OutputStream out = OutputStream.nullOutputStream();
+	
 	        grafico.setValue("Vendedor "+String.valueOf(4), 1);
 	        grafico.setValue("Reponedor "+String.valueOf(6), 1);
 	        grafico.setValue("Limpieza "+String.valueOf(6), 1);
@@ -49,7 +51,7 @@ package Controlador;
 	        catch(Exception ex){
 	        
 	        }
-	    }
+	    }*/
 	    public static void graficoBarra(ResultSet rs, String id){
 	        
 	        DefaultCategoryDataset dcs = new DefaultCategoryDataset();
@@ -66,9 +68,9 @@ package Controlador;
 		        		System.out.println(i);
 		        	}   
 
-		        OutputStream out = OutputStream.nullOutputStream();
+		        //OutputStream out = OutputStream.nullOutputStream();
 		        
-		        JFreeChart cha = ChartFactory.createBarChart3D("Beneficios: ", "Mes", "Beneficios $",dcs,PlotOrientation.VERTICAL, true, true ,true);
+		        JFreeChart cha = ChartFactory.createBarChart3D("Beneficios: ID"+id, "Mes", "Beneficios $",dcs,PlotOrientation.VERTICAL, true, true ,true);
 		        ChartPanel cp = new ChartPanel(cha);
 		        JFrame frame = new JFrame("Grafico");
 		        JPanel panel = new JPanel();
@@ -93,7 +95,7 @@ package Controlador;
 	        		System.out.println(i);
 	        	}   
 
-	        OutputStream out = OutputStream.nullOutputStream();
+	        //OutputStream out = OutputStream.nullOutputStream();
 	        
 	        JFreeChart cha = ChartFactory.createBarChart3D("Ventas producto: ID"+id, "Mes", "Ingresos $",dcs,PlotOrientation.VERTICAL, true, true ,true);
 	        ChartPanel cp = new ChartPanel(cha);
