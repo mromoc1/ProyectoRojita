@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Dimension;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -16,119 +17,75 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
 public class paneladministrarinformaciones extends JPanel {
 
-	public JButton boton_buscar;
-	public JButton boton_cancelarorden;
-	public JButton boton_nuevaorden;
-	
-	
+	public JButton boton_consulta1;
+	public JButton boton_consulta2;
+	public JButton boton_consulta3;
+	public JButton boton_consulta4;
+	public JButton boton_volver;
+	public JLabel  label_consulta1;
+	public JLabel  label_consulta2;
+	public JLabel  label_consulta3;
+	public JLabel  label_consulta4;	
 	public JTextField campocodigo;
 	
 	
 	public JPanel panellista;
 	public JTable tabla_ordenes;
-	public JTable tabla_productosorden;
 	
 	public paneladministrarinformaciones() {
 		setLayout(new BorderLayout(0, 0));
 		
+		JLabel lblNewLabel = new JLabel("Administrar Informaciones:");
+		lblNewLabel.setVerticalAlignment(SwingConstants.BOTTOM);
+		lblNewLabel.setFont(new Font("Sylfaen", Font.BOLD, 28));
+		add(lblNewLabel, BorderLayout.NORTH);
+		
 		JPanel panel = new JPanel();
 		add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
+		panel.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JPanel panel_3 = new JPanel();
-		panel_3.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_3.setBounds(248, 11, 339, 48);
-		panel.add(panel_3);
+		JPanel panel_1 = new JPanel();
+		panel.add(panel_1);
+		boton_consulta1 = new JButton("Sueldos");
+		boton_consulta1.setPreferredSize(new Dimension(200, 30));
+		label_consulta1 = new JLabel("( Información de los sueldos de todos los empleados para un determinado mes)");
 		
-		JLabel lblInventario = new JLabel("Administrar Ordenes");
-		panel_3.add(lblInventario);
-		lblInventario.setFont(new Font("Century Gothic", Font.PLAIN, 30));
-		
-		JPanel panel_4 = new JPanel();
-		panel_4.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_4.setBounds(10, 70, 793, 432);
-		panel.add(panel_4);
-		panel_4.setLayout(null);
-		
-		JPanel panel_5 = new JPanel();
-		panel_5.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_5.setBounds(10, 11, 775, 45);
-		panel_4.add(panel_5);
-		panel_5.setLayout(null);
-		
-		JLabel lblrut = new JLabel("ID orden:");
-		lblrut.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		lblrut.setBounds(10, 12, 66, 19);
-		panel_5.add(lblrut);
-		
-		campocodigo = new JTextField();
-		campocodigo.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		campocodigo.setBounds(86, 11, 214, 20);
-		panel_5.add(campocodigo);
-		campocodigo.setColumns(10);
-		
-		boton_buscar = new JButton("Ver Orden");
-		boton_buscar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		boton_buscar.setBackground(Color.LIGHT_GRAY);
-		boton_buscar.setBounds(310, 11, 128, 23);
-		panel_5.add(boton_buscar);
-		boton_buscar.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		
-		boton_cancelarorden = new JButton("Cancelar Orden");
-		boton_cancelarorden.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		boton_cancelarorden.setBackground(Color.LIGHT_GRAY);
-		boton_cancelarorden.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		boton_cancelarorden.setBounds(448, 11, 156, 23);
-		panel_5.add(boton_cancelarorden);
-		
-		boton_nuevaorden = new JButton("Nueva Orden");
-		boton_nuevaorden.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		boton_nuevaorden.setBackground(Color.LIGHT_GRAY);
-		boton_nuevaorden.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		boton_nuevaorden.setBounds(614, 11, 139, 23);
-		panel_5.add(boton_nuevaorden);
-		
-		panellista = new JPanel();
-		panellista.setBounds(10, 67, 775, 354);
-		panel_4.add(panellista);
-		panellista.setLayout(new GridLayout(0, 2, 0, 0));
+		panel_1.add(boton_consulta1);
+		panel_1.add(label_consulta1);
 		
 		JPanel panel_2 = new JPanel();
-		panellista.add(panel_2);
-		panel_2.setLayout(new BorderLayout(0, 0));
-		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		panel_2.add(scrollPane_1, BorderLayout.CENTER);
-		
-		tabla_ordenes = new JTable();
-		tabla_ordenes.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"ID ORDEN", "Fecha"
-			}
-		));
-		scrollPane_1.setViewportView(tabla_ordenes);
-		
-		JPanel panel_7 = new JPanel();
-		panellista.add(panel_7);
-		panel_7.setLayout(new BorderLayout(0, 0));
-		
-		JScrollPane scrollPane = new JScrollPane();
-		panel_7.add(scrollPane, BorderLayout.CENTER);
-		
-		tabla_productosorden = new JTable();
-		tabla_productosorden.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Codigo", "Producto", "Proveedor", "Cantidad", "Precio"
-			}
-		));
-		scrollPane.setViewportView(tabla_productosorden);
+		panel.add(panel_2);
+		boton_consulta2 = new JButton("Buscar Proveedores");
 
+		boton_consulta2.setPreferredSize(new Dimension(200, 30));
+		label_consulta2 = new JLabel("( Información de los proveedores más baratos para productos con bajo stock)");
+		panel_2.add(boton_consulta2);
+		panel_2.add(label_consulta2);
+		
+		JPanel panel_3 = new JPanel();
+		panel.add(panel_3);
+		boton_consulta3 = new JButton("Ventas");
+		boton_consulta3.setPreferredSize(new Dimension(200, 30));
+		label_consulta3 = new JLabel("( Información de los ingresos obtenidos para algún determinado producto)");
+		panel_3.add(boton_consulta3);
+		panel_3.add(label_consulta3);
+		
+		JPanel panel_4 = new JPanel();
+		panel.add(panel_4);
+		boton_consulta4 = new JButton("Beneficios");
+		boton_consulta4.setPreferredSize(new Dimension(200, 30));
+		label_consulta4 = new JLabel("( Información de los beneficios obtenidos en el minimarket La Rojita)");
+		panel_4.add(boton_consulta4);
+		panel_4.add(label_consulta4);
+		
+		// BOTON DE VOLVER
+		boton_volver = new JButton("Volver");
+		JPanel panel_volver = new JPanel();
+		panel_volver.add(boton_volver,BorderLayout.EAST);
+		panel.add(panel_volver,BorderLayout.SOUTH);
 	}
 }

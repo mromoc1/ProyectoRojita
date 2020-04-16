@@ -13,15 +13,16 @@ public class controlador_paneladministrarinformaciones implements ActionListener
 	public controlador_paneladministrarinformaciones(paneladministrarinformaciones panel) {
 		this.panel=panel;
 		
-		this.panel.boton_buscar.addActionListener(this);
-		this.panel.boton_cancelarorden.addActionListener(this);
-		this.panel.boton_nuevaorden.addActionListener(this);
+		this.panel.boton_consulta1.addActionListener(this);
+		this.panel.boton_consulta2.addActionListener(this);
+		this.panel.boton_consulta3.addActionListener(this);
+		this.panel.boton_consulta4.addActionListener(this);
 		
 	}
 
 
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == panel.boton_nuevaorden) {
+		if(e.getSource() == panel.boton_consulta1) {
 			panelnuevaorden panel = new panelnuevaorden();
 			controlador_panelnuevaorden controlador = new controlador_panelnuevaorden(panel);
 			
