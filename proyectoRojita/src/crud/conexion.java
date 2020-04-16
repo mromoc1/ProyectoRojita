@@ -20,7 +20,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class conexion {
 
-	String config = "/proyectoRojita/src/crud/config.bin";
+	//String config = "/proyectoRojita/src/crud/config.bin";
+	String config = "/src/crud/config.bin";
 	String user = null;
 	String pass = null;
 	String url = null;
@@ -34,6 +35,7 @@ public class conexion {
 	 */
 	public conexion() throws IOException {
 		String c = System.getProperty("user.dir")+config;
+		System.out.println(c);
 		FileReader f = new FileReader(c);
 		BufferedReader b = new BufferedReader(f);
 		url = b.readLine().replaceAll("url:", "");
@@ -386,7 +388,7 @@ public class conexion {
                  	System.out.println("Conectado!!");
                  }
                  
-                 rsData = stmData.executeQuery("SELECT date_trunc('MONTH', b.fecha) as mes, SUM(total) as total FROM boleta as b GROUP BY date_trunc('MONTH', b.fecha);");
+                 rsData = stmData.executeQuery("SELECT date_trunc('MONTH', b.fecha) as mes, SUM(total) as total FROM boleta as b GROUP BY date_trunc('MONTH', b.fecha) order by mes;");
 
                  conData.close(); //Se cierrab la conexion a la base de datos.
                  return rsData;
@@ -417,7 +419,7 @@ public class conexion {
                  	System.out.println("Conectado!!");
                  }
                  
-                 rsData = stmData.executeQuery("Select date_trunc('MONTH', b.fecha) as mes, SUM(total) as total FROM boleta as b, productos as p, carro as c WHERE  b.idboleta = c.idboleta AND c.idproducto = p.idproducto AND p.idproducto ="+id+" GROUP BY date_trunc('MONTH', b.fecha)");
+                 rsData = stmData.executeQuery("Select date_trunc('MONTH', b.fecha) as mes, SUM(total) as total FROM boleta as b, productos as p, carro as c WHERE  b.idboleta = c.idboleta AND c.idproducto = p.idproducto AND p.idproducto ="+id+" GROUP BY date_trunc('MONTH', b.fecha) order by mes");
 
                  conData.close(); //Se cierrab la conexion a la base de datos.
                  return rsData;
@@ -429,5 +431,33 @@ public class conexion {
              }
          }
  
-	
+         public ResultSet mustraBeneficiosTotalesPorMes(String id) throws ClassNotFoundException {
+
+             Connection conData = null;//conn
+             Statement stmData; 
+             ResultSet rsData = null;
+             
+             try {
+
+                 //Class.forName(driver);
+                 conData = conn();
+                 stmData = conData.createStatement();
+                 
+                 if(conData != null) {
+                 	System.out.println("Conectado!!");
+                 }
+                 
+                 String consulta = "select a.mes, (a.ingresos - a.costo_proveedor - b.sueldos) as beneficios, a.ingresos, (a.costo_proveedor + b.sueldos) as costos from (SELECT a.mes,ingresos,costo_proveedor FROM (SELECT date_trunc('MONTH', b.fecha) as mes, SUM(total) as ingresos FROM boleta as b GROUP BY date_trunc('MONTH', b.fecha) order by mes) as a LEFT JOIN (SELECT date_trunc('Mon', factura.fecha) as mes, sum(productos_proveedor.precio_compra * lista_factura.cantidad_entrega) as costo_proveedor from factura, lista_factura, productos_proveedor where (factura.idfactura = lista_factura.idfactura and productos_proveedor.idProducto = lista_factura.idProducto)  group by date_trunc('Mon',factura.fecha) order by mes) as c ON a.mes = c.mes) as a LEFT JOIN (select date_trunc('Mon',Liquidacion.fecha) as mes,sum(liquidacion.sueldo_bruto) as sueldos from liquidacion group by date_trunc('Mon',liquidacion.fecha) order by mes) as b ON a.mes = b.mes;";
+                 rsData = stmData.executeQuery(consulta);
+
+                 conData.close(); //Se cierrab la conexion a la base de datos.
+                 return rsData;
+                
+             } catch (SQLException e) {
+
+             	JOptionPane.showMessageDialog(null, "Error en la conexion: "+e.getMessage());
+                 return null;
+             }
+         }
+ 
 }
