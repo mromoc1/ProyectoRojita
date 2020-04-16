@@ -13,6 +13,7 @@ import Vista.paneladministrarordenes;
 import Vista.paneladministrarproductos;
 import Vista.paneladministrarproductosproveedor;
 import Vista.paneladministrarproveedores;
+import Vista.paneladministrarinformaciones;
 import Vista.panelverliquidaciones;
 import Vista.ventanaadministrador;
 import Vista.ventanainicio;
@@ -31,6 +32,7 @@ public class controlador_ventanaadministrador implements ActionListener {
 		this.ventana.boton_volver.addActionListener(this);
 		this.ventana.boton_administrarclientes.addActionListener(this);
 		this.ventana.boto_administrarfacturas.addActionListener(this);
+		this.ventana.boton_administrarinformaciones.addActionListener(this);
 		this.ventana.boton_registroliquidaciones.addActionListener(this);
 		
 	}
@@ -113,6 +115,18 @@ public class controlador_ventanaadministrador implements ActionListener {
 			paneladministrarfacturas panel = new paneladministrarfacturas();
 			controlador_paneladministrarfacturas controlador = new controlador_paneladministrarfacturas(panel);
 			
+			ventana.panelcambio.removeAll();
+			ventana.panelcambio.add(panel,BorderLayout.CENTER);
+			ventana.panelcambio.revalidate();
+			ventana.panelcambio.repaint();
+			
+			
+			
+		}else if (e.getSource() == ventana.boton_administrarinformaciones){
+			paneladministrarinformaciones panel = new paneladministrarinformaciones();
+			System.out.println("FUNCIONA");
+			controlador_paneladministrarinformaciones controlador = new controlador_paneladministrarinformaciones(panel);
+			System.out.println("PASO");
 			ventana.panelcambio.removeAll();
 			ventana.panelcambio.add(panel,BorderLayout.CENTER);
 			ventana.panelcambio.revalidate();

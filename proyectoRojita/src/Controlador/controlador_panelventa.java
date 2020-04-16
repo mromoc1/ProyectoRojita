@@ -192,7 +192,7 @@ public class controlador_panelventa implements ActionListener, KeyListener{
 		
 		int ValorTotalCompra = Integer.parseInt(calculaValorTotal());
 		
-		if(identificaBeneficio() == "0") {
+		if(identificaBeneficio() == "5") {
 			 
 			panel.Descuento.setText("0%");
 			 return  Integer.toString(ValorTotalCompra);
@@ -231,7 +231,7 @@ public class controlador_panelventa implements ActionListener, KeyListener{
 		System.out.println("El monto total es: "+beneficio);
 		if(beneficio <= 2999) {
 			
-			return "0";
+			return "5";
 						
 		}else if(beneficio >= 3000 && beneficio <= 5000) {
 

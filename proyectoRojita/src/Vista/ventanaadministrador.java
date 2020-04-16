@@ -17,6 +17,7 @@ public class ventanaadministrador extends JFrame {
 	public JButton boton_administrarproveedores;
 	public JButton boton_administrarordenes;
 	public JButton boton_administrarproductosproveedor;
+	public JButton boton_administrarinformaciones;
 	public JButton boton_volver;
 	
 	public JPanel panelcambio;
@@ -76,6 +77,11 @@ public class ventanaadministrador extends JFrame {
 		boton_registroliquidaciones.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		boton_registroliquidaciones.setBackground(Color.LIGHT_GRAY);
 		panel.add(boton_registroliquidaciones);
+		
+		boton_administrarinformaciones = new JButton("Administrar Informaciones");
+		boton_administrarinformaciones.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		boton_administrarinformaciones.setBackground(Color.LIGHT_GRAY);
+		panel.add(boton_administrarinformaciones);
 		
 		boton_volver = new JButton("VOLVER");
 		boton_volver.setFont(new Font("Century Gothic", Font.PLAIN, 14));

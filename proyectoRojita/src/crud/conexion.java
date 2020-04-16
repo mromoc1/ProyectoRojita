@@ -2,6 +2,7 @@ package crud;
 
 import java.io.*;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -331,20 +332,100 @@ public class conexion {
            }
        }
 	
+       
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+       /* modifica el stock de los productos a corde a la cantidad adquirida por un cliente
+     	 * @param id_producto, cantidad
+     	 */
+         public void insertaRD(String id_registro, String id_empleado, String fecha, String hora_ingreso, String hora_salida) throws ClassNotFoundException {
+         	
+         	Connection conData = null;//conn
+             Statement stmData; 
+             
+             try {
+
+                 
+                 conData = conn();
+                 stmData = conData.createStatement();
+                 
+                 if(conData != null) {
+                 	System.out.println("Conectado!!");
+                 }
+                 stmData.executeUpdate("insert into registro_diario (idregistroempleado, idempleado, dia, hora_ingreso, hora_salida) values ("+id_registro+","+id_empleado+",'"+fecha+"','"+hora_ingreso+"','"+hora_salida+"')");
+                 
+                 conData.close(); //Se cierrab la conexion a la base de datos.
+                            
+             } catch (SQLException e) {
+
+                 JOptionPane.showMessageDialog(null, "Error en la conexion: "+e.getMessage());
+                 
+             }
+         	
+         }
+         
+         
+         
+         
+         /**
+     	 * Retorna un resulset con las las venstas realizadas por meses
+     	 * @return resultset
+     	 */
+         public ResultSet mustraVentasPorMes(String id) throws ClassNotFoundException {
+
+             Connection conData = null;//conn
+             Statement stmData; 
+             ResultSet rsData = null;
+             
+             try {
+
+                 //Class.forName(driver);
+                 conData = conn();
+                 stmData = conData.createStatement();
+                 
+                 if(conData != null) {
+                 	System.out.println("Conectado!!");
+                 }
+                 
+                 rsData = stmData.executeQuery("SELECT date_trunc('MONTH', b.fecha) as mes, SUM(total) as total FROM boleta as b GROUP BY date_trunc('MONTH', b.fecha);");
+
+                 conData.close(); //Se cierrab la conexion a la base de datos.
+                 return rsData;
+                
+             } catch (SQLException e) {
+
+             	JOptionPane.showMessageDialog(null, "Error en la conexion: "+e.getMessage());
+                 return null;
+             }
+         }
+         
+         
+         public ResultSet mustraVentasProductosPorMes(String id) throws ClassNotFoundException {
+
+             Connection conData = null;//conn
+             Statement stmData; 
+             ResultSet rsData = null;
+             
+             try {
+
+                 //Class.forName(driver);
+                 conData = conn();
+                 stmData = conData.createStatement();
+                 
+                 if(conData != null) {
+                 	System.out.println("Conectado!!");
+                 }
+                 
+                 rsData = stmData.executeQuery("Select date_trunc('MONTH', b.fecha) as mes, SUM(total) as total FROM boleta as b, productos as p, carro as c WHERE  b.idboleta = c.idboleta AND c.idproducto = p.idproducto AND p.idproducto ="+id+" GROUP BY date_trunc('MONTH', b.fecha)");
+
+                 conData.close(); //Se cierrab la conexion a la base de datos.
+                 return rsData;
+                
+             } catch (SQLException e) {
+
+             	JOptionPane.showMessageDialog(null, "Error en la conexion: "+e.getMessage());
+                 return null;
+             }
+         }
+ 
 	
 }
