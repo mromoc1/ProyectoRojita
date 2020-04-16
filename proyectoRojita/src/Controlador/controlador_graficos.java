@@ -68,7 +68,7 @@ package Controlador;
 
 		        OutputStream out = OutputStream.nullOutputStream();
 		        
-		        JFreeChart cha = ChartFactory.createBarChart3D("Beneficios: ID"+id, "Mes", "Beneficios $",dcs,PlotOrientation.VERTICAL, true, true ,true);
+		        JFreeChart cha = ChartFactory.createBarChart3D("Beneficios: ", "Mes", "Beneficios $",dcs,PlotOrientation.VERTICAL, true, true ,true);
 		        ChartPanel cp = new ChartPanel(cha);
 		        JFrame frame = new JFrame("Grafico");
 		        JPanel panel = new JPanel();
